@@ -1,6 +1,6 @@
 <h1>{{pc.profile.displayName}}</h1>
 
-<form ng-submit="pc.addLocation()">
+<form ng-submit="pc.submitLocationForm()">
   <div class="form-group">
     <input type="text" ng-model="pc.location.name" class="form-control" placeholder="Name">
   </div>
@@ -8,7 +8,8 @@
     <input type="text" ng-model="pc.location.description" class="form-control" placeholder="Description">
   </div>
   <div class="form-group">
-    <input type="text" ng-model="pc.location.zipcode" class="form-control" placeholder="Address"/>
+    <input type="text" ng-model="pc.location.zipcode" class="form-control" placeholder="Zipcode"/>
+    <!-- <input type="text" ng-model="pc.location.loc" class="form-control" value={{pc.location.loc}}/> -->
   </div>
   <input type="submit" value="Add Location" class="btn btn-block">
 </form>

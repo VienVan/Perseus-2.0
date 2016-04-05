@@ -9,8 +9,7 @@ var LocationSchema = mongoose.Schema({
 		index: '2d'
 	},
 	description: String,
-	snapshot: String,
-  userId: {type: Schema.Types.ObjectId, ref: 'User'}
+	snapshot: String
 });
 
 module.exports = mongoose.model('Location', LocationSchema);

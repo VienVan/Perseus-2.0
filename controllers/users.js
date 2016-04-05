@@ -22,6 +22,7 @@ var usersController = {
   },
   addLocation: function(req, res) {
     User.findById({_id: req.params.id}, function(err, user) {
+      console.log("lcoation body", req.body);
       var newLocation = new Location(req.body);
       newLocation.save(function(err, location) {
         if(err) {
