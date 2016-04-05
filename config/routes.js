@@ -9,9 +9,9 @@ var express = require('express'),
 
 router.route('/api/locations')
 
-    .get(locationsController.getAllLocations)
+    .get(locationsController.index)
 
-    .post(locationsController.addLocation);
+    .post(locationsController.createLocation);
 
 router.route('/api/me')
 

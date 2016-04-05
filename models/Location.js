@@ -1,4 +1,6 @@
 var mongoose = require('mongoose');
+var Schema = mongoose.Schema;
+var User = './User';
 
 var LocationSchema = mongoose.Schema({
 	name: String,
@@ -7,7 +9,8 @@ var LocationSchema = mongoose.Schema({
 		index: '2d'
 	},
 	description: String,
-	snapshot: String
+	snapshot: String,
+  userId: {type: Schema.Types.ObjectId, ref: 'User'}
 });
 
 module.exports = mongoose.model('Location', LocationSchema);

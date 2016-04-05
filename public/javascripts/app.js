@@ -23,6 +23,12 @@ function config($stateProvider, $urlRouterProvider, $locationProvider) {
       controllerAs: 'perseus',
       templateUrl: 'templates/home.html'
     })
+    .state('profile', {
+      url:'/:id',
+      controller: 'ProfileController',
+      controllerAs: 'pc',
+      templateUrl: 'templates/profile.html'
+    })
     .state('signup', {
       url: '/signup',
       templateUrl: 'templates/signup.html',
@@ -80,6 +86,7 @@ app
   .controller('LoginController', LoginController)
   .controller('SignupController', SignupController)
   .controller('LogoutController', LogoutController)
+  .controller('ProfileController', ProfileController)
 
 
 // controllers
@@ -94,11 +101,14 @@ function MainController (Account) {
 
 }
 
+ProfileController.$inject = ['$stateParams'];
+function ProfileController($stateParams) {
+  console.log("params", $stateParams);
+}
 LoginController.$inject = ["$location", "Account"]; // minification protection
-function LoginController ($location, Account) {
+function LoginController ($location, Account, $stateParams) {
   var vm = this;
   vm.new_user = {}; // form data
-
   vm.login = function() {
     Account
       .login(vm.new_user)
