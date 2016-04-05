@@ -3,7 +3,6 @@ var app            = express();
 var bodyParser     = require('body-parser');
 var mongoose       = require('mongoose');
 var methodOverride = require('method-override');
-// var User           = require('./models/User');
 var auth           = require('./resources/auth');
 
 
@@ -29,5 +28,5 @@ app.get(['/', '/signup', '/login', '/search'], function (req, res) {
 });
 
 app.listen(3000, function(){
-  console.log('check it out on 3000');
+  console.log("Let's Marvin Gaye and get it on at port", 3000);
 });
