@@ -9,7 +9,8 @@ var UserSchema = mongoose.Schema({
   password: { type: String, select: false },
   displayName: String,
   username: { type: String },
-  picture: String
+  picture: String,
+  locationIds: [{type: Schema.Types.ObjectId, ref: 'Location'}]
 });
 
 UserSchema.pre('save', function (next) {

@@ -24,7 +24,7 @@ var routes = require('./config/routes');
 app.use(routes);
 
 
-app.get(['/', '/signup', '/login', '/search'], function (req, res) {
+app.get(['*', '/', '/signup', '/login', '/search'], function (req, res) {
   res.render('index');
 });
 

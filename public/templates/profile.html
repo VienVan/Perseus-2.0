@@ -1,1 +1,14 @@
-{{pc.email}}
+<h1>{{pc.profile.displayName}}</h1>
+
+<form ng-submit="pc.addLocation()">
+  <div class="form-group">
+    <input type="text" ng-model="pc.location.name" class="form-control" placeholder="Name">
+  </div>
+  <div class="form-group">
+    <input type="text" ng-model="pc.location.description" class="form-control" placeholder="Description">
+  </div>
+  <div class="form-group">
+    <input type="text" ng-model="pc.location.address" class="form-control" placeholder="Address"/>
+  </div>
+  <input type="submit" value="Add Location" class="btn btn-block">
+</form>

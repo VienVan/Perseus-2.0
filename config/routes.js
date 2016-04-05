@@ -8,24 +8,21 @@ var express = require('express'),
     var auth = require('../resources/auth');
 
 router.route('/api/locations')
-
     .get(locationsController.index)
-
     .post(locationsController.createLocation);
-
+router.route('/api/users')
+    .get(usersController.getUsers)
+router.route('/api/user/:id')
+    .get(usersController.getUser)
+router.route('/api/user/:id/locations')
+    .get(usersController.getLocations)
+    .post(usersController.addLocation);
 router.route('/api/me')
-
-    .get(auth.ensureAuthenticated, usersController.getUser)
-
+    .get(auth.ensureAuthenticated, usersController.currentUser)
     .put(auth.ensureAuthenticated, usersController.addUser);
-
 router.route('/auth/signup')
-
     .post(usersController.signUp);
-
-
 router.route('/auth/login')
-
     .post(usersController.logIn);
 
 

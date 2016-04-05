@@ -24,7 +24,7 @@ function config($stateProvider, $urlRouterProvider, $locationProvider) {
       templateUrl: 'templates/home.html'
     })
     .state('profile', {
-      url:'/:id',
+      url:'/users/:id',
       controller: 'ProfileController',
       controllerAs: 'pc',
       templateUrl: 'templates/profile.html'
@@ -76,8 +76,6 @@ function config($stateProvider, $urlRouterProvider, $locationProvider) {
       return deferred.promise;
     }
 
-
-
 }
 
 app
@@ -94,17 +92,29 @@ app
 MainController.$inject = ["Account"]; // minification protection
 function MainController (Account) {
   var vm = this;
-
   vm.currentUser = function() {
    return Account.currentUser();
   }
-
 }
 
-ProfileController.$inject = ['$stateParams'];
-function ProfileController($stateParams) {
-  console.log("params", $stateParams);
+ProfileController.$inject = ['$http','$stateParams'];
+function ProfileController($http, $stateParams) {
+  var vm = this;
+  $http.get('/api/users/' + $stateParams.id)
+    .then(function(res) {
+      vm.profile = res.data;
+    })
+  vm.addLocation = addLocation;
+  vm.location = {};
+
+  function addLocation() {
+    $http.post('/api/user/'+$stateParams.id+'/locations', vm.location)
+      .then(function(res) {
+        console.log("location res", res)
+      })
+  }
 }
+
 LoginController.$inject = ["$location", "Account"]; // minification protection
 function LoginController ($location, Account, $stateParams) {
   var vm = this;
