@@ -20,6 +20,7 @@ app.set('view engine', 'hbs');
 mongoose.connect('mongodb://localhost/Perseus');
 
 var routes = require('./config/routes');
+
 app.use(routes);
 
 
