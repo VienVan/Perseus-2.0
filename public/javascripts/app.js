@@ -112,32 +112,23 @@ function ProfileController($http, $stateParams) {
   // vm.location.loc;
 
   vm.submitLocationForm = function() {
-    vm.geocode().then(vm.addLocation)
+    vm.geocode(vm.addLocation);
   }
 
-  vm.geocode = function() {
-    var illDoThatThing = new Promise(function(resolve) {
-      var apiEndPoint = 'https://api.mapbox.com/geocoding/v5/mapbox.places/'+vm.location.zipcode+'.json?access_token=pk.eyJ1IjoidmllbnZhbiIsImEiOiJjaW1uczNyazYwMDE3dGtseTUxNndqcTEyIn0.fkvvqUjwFKLu5JhdbwKNWw'
-      $http.get(apiEndPoint)
-        .then(function(res) {
-          resolve(res.data.features[0].center)
-        })
+  vm.geocode = function(cb) {
+    var apiEndPoint = 'https://api.mapbox.com/geocoding/v5/mapbox.places/'+vm.location.zipcode+'.json?access_token=pk.eyJ1IjoidmllbnZhbiIsImEiOiJjaW1uczNyazYwMDE3dGtseTUxNndqcTEyIn0.fkvvqUjwFKLu5JhdbwKNWw'
+    $http.get(apiEndPoint)
+      .then(function(res) {
+        var longLat = res.data.features[0].center;
+        cb(longLat);
+        // console.log("vm.location.zipcode", vm.location.zipcode)
+        // console.log("res map", res);
+        // console.log("longlat", res.data.features[0].center);
+        //call add location...
     })
-    return illDoThatThing
-    // var apiEndPoint = 'https://api.mapbox.com/geocoding/v5/mapbox.places/'+vm.location.zipcode+'.json?access_token=pk.eyJ1IjoidmllbnZhbiIsImEiOiJjaW1uczNyazYwMDE3dGtseTUxNndqcTEyIn0.fkvvqUjwFKLu5JhdbwKNWw'
-    // $http.get(apiEndPoint)
-    //   .then(function(res) {
-    //     var longLat = res.data.features[0].center;
-    //     cb(longLat);
-    //     // console.log("vm.location.zipcode", vm.location.zipcode)
-    //     // console.log("res map", res);
-    //     // console.log("longlat", res.data.features[0].center);
-    //     //call add location...
-    // })
   }
 
   vm.addLocation = function(longLat) {
-    // vm.geocode();
     vm.location.loc = longLat;
     console.log("geocode", vm.location.loc)
     $http.post('/api/user/'+$stateParams.id+'/locations', vm.location)
