@@ -97,6 +97,10 @@ function MainController (Account) {
   }
 }
 
+// function HomeController($http) {
+//
+// }
+
 ProfileController.$inject = ['$http','$stateParams'];
 function ProfileController($http, $stateParams) {
   var vm = this;
@@ -106,8 +110,16 @@ function ProfileController($http, $stateParams) {
     })
   vm.addLocation = addLocation;
   vm.location = {};
+  vm.geocode = function() {
+    $http.get('https://api.mapbox.com/geocoding/v5/mapbox.places/'+vm.location.zipcode+'.json?access_token=pk.eyJ1IjoidmllbnZhbiIsImEiOiJjaW1uczNyazYwMDE3dGtseTUxNndqcTEyIn0.fkvvqUjwFKLu5JhdbwKNWw')
+      .then(function(res) {
+        console.log("vm.location.zipcode", vm.location.zipcode)
+        console.log("res map", res);
+      })
+  }
 
   function addLocation() {
+    vm.geocode();
     $http.post('/api/user/'+$stateParams.id+'/locations', vm.location)
       .then(function(res) {
         console.log("location res", res)
