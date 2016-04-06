@@ -13,7 +13,7 @@
    <link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet/v0.7.7/leaflet.css" />
 
   <!-- custom styles -->
-  <!-- <link rel="stylesheet" type="text/css" href="styles/main.css"> -->
+
 
   <!-- jquery -->
   <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.js"></script>
@@ -33,10 +33,17 @@
   <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/satellizer/0.13.4/satellizer.min.js"></script>
 
   <script src="http://cdn.leafletjs.com/leaflet/v0.7.7/leaflet.js"></script>
-  <!-- custom script (angular app) -->
-  <script type="text/javascript" src="javascripts/app.js"></script>
 
-  <title>Angular Auth</title>
+  <script src='https://api.mapbox.com/mapbox.js/v2.4.0/mapbox.js'></script>
+  <link href='https://api.mapbox.com/mapbox.js/v2.4.0/mapbox.css' rel='stylesheet' />
+  <link rel="stylesheet" type="text/css" href="stylesheets/main.css">
+  <!-- custom script (angular app) -->
+
+  <script type="text/javascript" src="javascripts/app.js"></script>
+  <script type="text/javascript" src="javascripts/map.js"></script>
+
+
+  <title>Perseus</title>
 </head>
 <body ng-controller="MainController as main">
   <nav class="navbar navbar-default">
@@ -63,6 +70,7 @@
       </div>
     </div>
   </nav>
+
   <div class="container">
     <div class="row">
       <div class="col-md-6 col-md-offset-3">
@@ -70,6 +78,7 @@
       </div>
     </div>
   </div>
+
 
 </body>
 </html>

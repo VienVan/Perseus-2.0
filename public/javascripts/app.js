@@ -1,14 +1,11 @@
-console.log('loaded');
-var app = angular.module('PerseusApp', ['ui.router', 'ngResource', 'satellizer']);
 
+var app = angular.module('PerseusApp', ['ui.router', 'ngResource', 'satellizer']);
 
 app.config(config);
 
 config.$inject = ['$stateProvider', '$urlRouterProvider', '$locationProvider'];
 
 function config($stateProvider, $urlRouterProvider, $locationProvider) {
-  console.log('config');
-
   $locationProvider.html5Mode({
     enabled: true,
     requiredBase: false
@@ -97,10 +94,6 @@ function MainController (Account) {
   }
 }
 
-// function HomeController($http) {
-//
-// }
-
 ProfileController.$inject = ['$http','$stateParams'];
 function ProfileController($http, $stateParams) {
   var vm = this;
@@ -109,10 +102,9 @@ function ProfileController($http, $stateParams) {
       vm.profile = res.data;
     })
   vm.location = {};
-  // vm.location.loc;
-
   vm.submitLocationForm = function() {
     vm.geocode(vm.addLocation);
+    vm.location = {};
   }
 
   vm.geocode = function(cb) {
@@ -121,10 +113,6 @@ function ProfileController($http, $stateParams) {
       .then(function(res) {
         var longLat = res.data.features[0].center;
         cb(longLat);
-        // console.log("vm.location.zipcode", vm.location.zipcode)
-        // console.log("res map", res);
-        // console.log("longlat", res.data.features[0].center);
-        //call add location...
     })
   }
 
