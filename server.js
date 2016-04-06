@@ -4,6 +4,7 @@ var bodyParser     = require('body-parser');
 var mongoose       = require('mongoose');
 var methodOverride = require('method-override');
 var auth           = require('./resources/auth');
+var port           = process.env || 3000;
 
 
 
