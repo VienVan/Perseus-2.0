@@ -1,4 +1,3 @@
-
 var app = angular.module('PerseusApp', ['ui.router', 'ngResource', 'satellizer', 'leaflet-directive']);
 
 app.config(config);
@@ -21,7 +20,7 @@ function config($stateProvider, $urlRouterProvider, $locationProvider) {
       templateUrl: 'templates/home.html'
     })
     .state('profile', {
-      url:'/:id',
+      url:'/profile/:id',
       controller: 'ProfileController',
       controllerAs: 'pc',
       templateUrl: 'templates/profile.html'
@@ -88,10 +87,28 @@ HomeController.$inject = ["$scope", "$http"]
 function HomeController ($scope, $http) {
   angular.extend($scope, {
     london: {
-      lat: 51.505,
-      lng: -0.09,
+      lat: 37.76,
+      lng: -122.463,
       zoom: 8
     },
+    layers: {
+      baselayers: {
+          mapbox_light: {
+              name: 'Mapbox Dark',
+              url: 'http://api.tiles.mapbox.com/v4/{mapid}/{z}/{x}/{y}.png?access_token={apikey}',
+              type: 'xyz',
+              layerOptions: {
+                  apikey: 'pk.eyJ1IjoidmllbnZhbiIsImEiOiJjaW1uczNyazYwMDE3dGtseTUxNndqcTEyIn0.fkvvqUjwFKLu5JhdbwKNWw',
+                  mapid: 'mapbox.satellite'
+              }
+          },
+          osm: {
+              name: 'OpenStreetMap',
+              url: 'http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',
+              type: 'xyz'
+          }
+      }
+  },
     markers: {}
     });
   $http.get('/api/locations')
@@ -116,7 +133,7 @@ function MainController (Account) {
   }
 }
 
-ProfileController.$inject = ['$http','$stateParams'];
+ProfileController.$inject = ['$http', '$stateParams'];
 function ProfileController($http, $stateParams) {
   var vm = this;
   vm.location = {};
@@ -152,7 +169,7 @@ function ProfileController($http, $stateParams) {
 }
 
 LoginController.$inject = ["$location", "Account"]; // minification protection
-function LoginController ($location, Account, $stateParams) {
+function LoginController ($location, Account) {
   var vm = this;
   vm.new_user = {}; // form data
   vm.login = function() {
@@ -191,14 +208,14 @@ function LogoutController ($location, Account) {
     });
 }
 
-
-app.service('Location', function($resource) {
-    return $resource('http://localhost:3000/api/locations', {
-      update: {
-        method: 'PATCH' // this method issues a PUT request
-    }
-  });
-});
+//
+// app.service('Location', function($resource) {
+//     return $resource('http://localhost:3000/api/locations', {
+//       update: {
+//         method: 'PATCH' // this method issues a PUT request
+//     }
+//   });
+// });
 
 
 // service for account and login

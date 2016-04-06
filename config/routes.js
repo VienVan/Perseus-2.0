@@ -8,8 +8,7 @@ var express = require('express'),
     var auth = require('../resources/auth');
 
 router.route('/api/locations')
-    .get(locationsController.index)
-    .post(locationsController.createLocation);
+    .get(locationsController.index);
 router.route('/api/users')
     .get(usersController.getUsers)
 router.route('/api/user/:id')
