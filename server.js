@@ -4,7 +4,7 @@ var bodyParser     = require('body-parser');
 var mongoose       = require('mongoose');
 var methodOverride = require('method-override');
 var auth           = require('./resources/auth');
-var port           = process.ENV || 3000;
+var port           = process.env.PORT || 3000;
 
 
 
@@ -18,7 +18,7 @@ app.use(express.static(__dirname + '/public'));
 
 app.set('view engine', 'hbs');
 
-mongoose.connect('mongodb://heroku_458td0hm:nnv6e2h3ohtfvp4ra845740nor@ds021999.mlab.com:21999/heroku_458td0hm');
+mongoose.connect('mongodb://localhost/Perseus');
 
 var routes = require('./config/routes');
 
