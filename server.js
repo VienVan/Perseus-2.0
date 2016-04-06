@@ -18,7 +18,7 @@ app.use(express.static(__dirname + '/public'));
 
 app.set('view engine', 'hbs');
 
-mongoose.connect('mongodb://localhost/Perseus');
+mongoose.connect('mongodb://heroku_458td0hm:nnv6e2h3ohtfvp4ra845740nor@ds021999.mlab.com:21999/heroku_458td0hm');
 
 var routes = require('./config/routes');
 
