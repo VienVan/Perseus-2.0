@@ -29,6 +29,6 @@ app.get(['*', '/', '/signup', '/login', '/search'], function (req, res) {
   res.render('index');
 });
 
-app.listen(3000, function(){
-  console.log("Let's Marvin Gaye and get it on at port", 3000);
+app.listen(port, function(){
+  console.log("Let's Marvin Gaye and get it on at port", port);
 });
