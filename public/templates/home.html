@@ -1,1 +1,10 @@
-<div id='map'></div>
+<h1>Home page</h1>
+<form>
+  <div class="form-group" ng-submit="pc.geocode()">
+    <input type="text" ng-model="zipcode" class='form-control' placeholder="What's your zipcode?"/>
+  </div>
+  <div class="form-group" ng-submit="pc.geocode()">
+    <input type="Submit" ng-model="zipcode" value="Search"/>
+  </div>
+</form>
+<leaflet lf-center="london" markers="markers" height="480px" width="100%"></leaflet>

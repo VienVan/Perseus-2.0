@@ -1,5 +1,5 @@
 
-var app = angular.module('PerseusApp', ['ui.router', 'ngResource', 'satellizer']);
+var app = angular.module('PerseusApp', ['ui.router', 'ngResource', 'satellizer', 'leaflet-directive']);
 
 app.config(config);
 
@@ -16,12 +16,12 @@ function config($stateProvider, $urlRouterProvider, $locationProvider) {
   $stateProvider
     .state('home', {
       url:'/',
-      controller: 'LocationController',
-      controllerAs: 'perseus',
+      controller: 'HomeController',
+      controllerAs: 'home',
       templateUrl: 'templates/home.html'
     })
     .state('profile', {
-      url:'/users/:id',
+      url:'/:id',
       controller: 'ProfileController',
       controllerAs: 'pc',
       templateUrl: 'templates/profile.html'
@@ -76,15 +76,37 @@ function config($stateProvider, $urlRouterProvider, $locationProvider) {
 }
 
 app
-  .controller('LocationController', LocationController)
+  .controller('HomeController', HomeController)
   .controller('MainController', MainController)
   .controller('LoginController', LoginController)
   .controller('SignupController', SignupController)
   .controller('LogoutController', LogoutController)
   .controller('ProfileController', ProfileController)
 
-
 // controllers
+HomeController.$inject = ["$scope", "$http"]
+function HomeController ($scope, $http) {
+  angular.extend($scope, {
+    london: {
+      lat: 51.505,
+      lng: -0.09,
+      zoom: 8
+    },
+    markers: {}
+    });
+  $http.get('/api/locations')
+    .then(function(response) {
+      $scope.locations = response.data;
+      console.log("scope locations", $scope.locations)
+      $scope.locations.forEach(function(location) {
+        $scope.markers[location._id] = {
+            lat: location.loc[1],
+            lng: location.loc[0],
+            message: location.name
+        }
+      })
+    })
+}
 
 MainController.$inject = ["Account"]; // minification protection
 function MainController (Account) {
@@ -97,14 +119,15 @@ function MainController (Account) {
 ProfileController.$inject = ['$http','$stateParams'];
 function ProfileController($http, $stateParams) {
   var vm = this;
-  $http.get('/api/users/' + $stateParams.id)
+  vm.location = {};
+  $http.get('/api/me')
     .then(function(res) {
+      console.log("profile res", res.data)
       vm.profile = res.data;
     })
-  vm.location = {};
+
   vm.submitLocationForm = function() {
     vm.geocode(vm.addLocation);
-    vm.location = {};
   }
 
   vm.geocode = function(cb) {
@@ -122,7 +145,9 @@ function ProfileController($http, $stateParams) {
     $http.post('/api/user/'+$stateParams.id+'/locations', vm.location)
       .then(function(res) {
         console.log("location res", res)
+        vm.location = {};
       })
+
   }
 }
 
@@ -162,21 +187,13 @@ function LogoutController ($location, Account) {
   Account
     .logout()
     .then(function () {
-        $location.path('/login');
+        $location.path('/');
     });
 }
 
-LocationController.$inject = ["Location", "$http"]
-function LocationController(Location, $http){
-  var self = this;
-  self.locations = Location.query();
-  self.newLocation = {}
-
-};
-
 
 app.service('Location', function($resource) {
-    return $resource('http://localhost:3000/api/locations/:id', {id: '@_id' }, {
+    return $resource('http://localhost:3000/api/locations', {
       update: {
         method: 'PATCH' // this method issues a PUT request
     }
