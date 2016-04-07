@@ -1,4 +1,4 @@
-var app = angular.module('PerseusApp', ['ui.router', 'ngResource', 'satellizer', 'leaflet-directive']);
+var app = angular.module('PerseusApp', ['ui.router', 'ngResource', 'satellizer', 'leafletDirective']);
 
 app.config(config);
 
