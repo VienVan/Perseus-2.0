@@ -6,7 +6,7 @@ var methodOverride = require('method-override');
 var auth           = require('./resources/auth');
 var port           = process.env.PORT || 3000;
 
-
+var uri            = process.env.MONGOLAB_URI || "mongodb://localhost/Perseus";
 
 require('dotenv').load();
 
@@ -18,7 +18,7 @@ app.use(express.static(__dirname + '/public'));
 
 app.set('view engine', 'hbs');
 
-mongoose.connect('mongodb://localhost/Perseus');
+mongoose.connect(uri);
 
 var routes = require('./config/routes');
 
