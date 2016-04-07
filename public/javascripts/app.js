@@ -119,7 +119,7 @@ function HomeController ($scope, $http) {
         $scope.markers[location._id] = {
             lat: location.loc[1],
             lng: location.loc[0],
-            message: location.name
+            message: location.description
         }
       })
     })

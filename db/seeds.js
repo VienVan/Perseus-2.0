@@ -175,6 +175,162 @@ var locations = [
       loc: [-76.00, 42.35],
       description: "This is a fine park for observing. You do have to be camped there in order to stay inside after they lock the gates at dusk. If you observe, count on the ranger coming by at some point to ask what you're doing. As long as you're camped and don't appear threatening, you should be okay. The campground and the lake area have some lights. To escape them, I go to a parking lot which serves a picnic area. Trees there block off all lights. Horizons are okay there. ",
       url: "http://www.gobroomecounty.com/community/ParksGreenwood.php"
+    },
+    {
+      name: "Pine Mountain Observatory",
+      loc: [-123.0951, 44.0505],
+      description: "Pine Mountain Observatory, which is owned and operated by the University of Oregon, has 15-, 24-, and 32-inch telescopes.  The 15-inch is used for public viewing.  There is a free, albeit primitive campground nearby.  You will need to bring your own water.",
+      url: "http://pmo-sun.uoregon.edu/~pmo/index.html"
+    },
+    {
+      name: "Indian Trail Springs",
+      loc: [-106.846394, 40.494679],
+      description: "Very large alpine meadow site. The ground material is volcanic rock with an assortment of sage and wildflowers.  The site can have mosquitoes during the early spring and can be dusty also. The nights can be quite cold even in summer.  Not accessible in winter.",
+      url: "http://www.teleport.com/~ospinc"
+    },
+    {
+      name: "Table Mountain",
+      loc: [-121.977527, 45.645218],
+      description: " Nice open meadow site, with trees surrounding, which are nice for camping.  One small campground with pit toilet is available. High elevation means the site has mosquitoes some times of the year, and also can be quite chilly even in summer.  Not accessible in winter.",
+      url: "http://www.tmspa.com"
+    },
+    {
+      name: "Groundhog Mountain Park",
+      loc: [-79.851849, 37.290029],
+      description: "I had the opportunity to visit this site last weekend and was totally blown away by the skies!  I normally view to the Southeast of Greensboro in relatively dark skies at Three College Observatory, but the 2.5 hour drive up to Hogback Mtn. was well worth the effort.",
+      url: "http://www.blueridgeparkway.info/groundhog_mountain.htm"
+    },
+    {
+      name: "Powhatan Wildlife Management Area ",
+      loc: [-77.924158, 37.553341],
+      description: "The site is about 40 miles southwest of Richmond.   Head West on the Midlothian Turnpike (US 60) and cross the Powhatan County border. ",
+      url: "http://www.dgif.virginia.gov/wmas/detail.asp?pid=18"
+    },
+    {
+      name: " Staunton River State Park ",
+      loc: [-78.673802, 36.69856],
+      description: "Staunton River State Park is the location of the Staunton River Star Party, held once in the spring and once in the fall. The park, rangers and staff are very accommodating. If you are there to observing outside of the star party dates, contact the park staff and rangers for approval before setting up anything on the main field.",
+      url: "http://www.dcr.virginia.gov/state_parks/sta.shtml"
+    },
+    {
+      name: "Whitetop Mountain ",
+      loc: [-81.570991, 36.620038],
+      description: " Whitetop is about an hour drive from Doughton Park on the Blue Ridge Parkway in NC. At 5,500 feet it is considerably higher than Doughton which is at 3,300 feet and the seeing on clear nights is spectacular. The south and south east horizons are particularly dark. Omega Centauri is just visible naked eye and is totally overwhelming in my Takahashi Mewlon 250 or just about any 'scope for that matter: talk about stars and stars and more stars. Great location for astrophotography. Very cold in winter with any wind. Dress very warmly.",
+      url: " http://www.rlrouse.com/whitetop-mountain.html"
+    },
+    {
+      name: "Catahoula National Wildlife Refuge",
+      loc: [-92.361038, 31.288308],
+      description: "This is just a publicly-accessible area, completely devoid of any kind of development except the flood control gates.",
+      url: "http://www.fws.gov/catahoula"
+    },
+    {
+      name: "Meeting House Park",
+      loc: [-70.238334, 43.850375],
+      description: "Passing car lights will bother you if you stay near the road but it is not very busy. Sodium light on end of barn 1/2 mile away is bothersome. I am working with owner to change.",
+      url: "http://www.northyarmouth.govoffice.com"
+    },
+    {
+      name: "Natural Bridges National Monument",
+      loc: [-109.464127, 37.641187],
+      description: " Natural Bridges Park is the first 'official dark-sky site' in the US. The area is surrounded by hills and mountains high enough to block any outside light from any nearby towns. You don't need to be 'in the park, proper', because the surrounding hills blocking any light for miles, but the park site is safe and open to visitors. I stayed in Blanding (estimate 30 miles away to the east) and drove over. In fact, when I went back to the park center at 2am (once the moon set), I was alone, except for a small camper in the area.  The coke machine worked, and if I remember correctly, the bathrooms were accessible.",
+      url: "http://www.nps.gov/nabr/naturescience/darkskypark.htm"
+    },
+    {
+      name: "Pettigrew State Park",
+      loc: [-76.436904, 35.832688],
+      description: ". Months of November to April are best for 2 reasons: little haze and little activity on the lake (i.e., boaters). Rangers say that Spring, Summer, and early Fall weekends will probably have boaters at night (a very popular bass lake). If this is the case, the security light will be left on for safety reasons. However, a ranger told us that during the week there are usually no boaters. If no one is on the lake, the light can be turned off for you. A fantastic site for the serious deep sky observer.",
+      url: "http://ils.unc.edu/parkproject/pett.html"
+    },
+    {
+      name: "Bladen Lakes State Forest (BLSF)",
+      loc: [-78.557053, 34.704929],
+      description: "This site is a very dark site with only one small light dome from Elizabethtown and an extremely minor glow on the northwestern horizon from Fayetteville that is over 30 miles away. The actual site is a large clear cut area (45 acres I think) with good horizons. No traffic will be coming on these roads at all (I have never experienced traffic in the many times I have been there)",
+      url: "http://www.mindspring.com/~pleiades7/darksky.html"
+    },
+    {
+      name: "Doughton Park",
+      loc: [-81.255522, 36.42902],
+      description: " This is one of the best sites in the NC mountains.  Any new moon weekend will find telescopes ranging from 4.5 to 20+ taking advantage of the skies and usually 2 or more NC astronomy clubs will have members observing here .  Wind can be a problem some days for photography, but overall not a concern.  Humidity is low and relative sky glow is limited to the ENE.",
+      url: "http://www.nps.gov/blri/doughton.htm"
+    },
+    {
+      name: "Hooper's Bald Trailhead - Cherohala Skyway",
+      loc: [-83.38541, 35.056005],
+      description: "This site is situated along the Cherohala Skyway scenic by-way, which runs through the Nantahala National Forest between Robbinsville, NC and Telico Plains, TN.  Although the Skyway offers several scenic overlooks for partial views of the night sky, the Hooper Bald Trailhead parking lot (near the NC/TN boarder) is situated slightly above the roadway and is removed from the direct headlights of [rare] passing vehicles. Trees surrounding the parking lot block the lowest portions of the southern sky, but this high ridge is not blocked by any other nearby mountain tops. The site is a parking lot for about 20 cars and offers outhouse facilities. The site is also used by amateur radio operators.",
+      url: "http://ilovenc.com/cherohala.htm"
+    },
+    {
+      name: "Haleakala National Park Summit Visitor Center",
+      loc: [-156.311816, 20.842641],
+      description: "This is one of the best observing sites on Earth! Nearby Mauna Kea on the Big Island of Hawaii is better, but of course, that is generally considered THE top site in the world. Note: Come prepared for harsh summit conditions. You won't 'survive' more than a few minutes at night with your beach shorts and T-shirt. Temperatures drop fast after sundown, usually into the low 40's, and the winds can blow mercilessly, easily up to 40+ mph, creating serious wind-chills. Locating a 'wind shadow' behind any structure, ridge or tall vehicle, is HIGHLY recommended.",
+      url: "http://www.nps.gov/hale/"
+    },
+    {
+      name: "Dillingham",
+      loc: [-157.827698, 21.27693],
+      description: "This is probably the best site you will find on Oahu. The site is about as far from town as you can get and is one of the main observing sites of the HAS. The club holds monthly star parties on the Saturday night nearest New Moon, 'Last Quarter Moon' star parties on the preceding Saturdays, and special events.",
+      url: "http://www.hawastsoc.org"
+    },
+    {
+      name: "Chiricahua National Monument",
+      loc: [-109.389795, 32.006796],
+      description: " This is a high altitude site (well, moderate) and gets cool, so dress warmly. Wind is often a problem, but there are many places to tuck behind trees and hills in the two parking areas. Other observers are occasionally present.",
+      url: "http://www.nps.gov/chir"
+    },
+    {
+      name: "Golden Gate Canyon State Park",
+      loc: [-105.338331, 39.841836],
+      description: "I lived and operated an observatory on the northeast corner of this park for 25 years. The Rimrock campground is at an elevation of 9,000 feet ASL, so the sky can be very transparent. Temperatures at night are always cool to cold with temperatures in the 40s F in mid-summer.",
+      url: "http://parks.state.co.us/Parks/GoldenGateCanyon/"
+    },
+    {
+      name: "Cedar Key Airport",
+      loc: [-83.036, 29.1377],
+      description: "When we went to Cedar Key because my wife and daughter wanted to be on the water, little did I realize we were also stumbling across one of the most laid back, nifty observing spots in Florida.  We'll be going back again!",
+      url: "http://cedarkey.org"
+    },
+    {
+      name: "Withlacoochee River Park",
+      loc: [-82.123907, 28.339569],
+      description: "Withlacoochee River Park is used by the St. Petersburg Astronomy Club for our dark sky site. We are there on most New Moon Weekends and host our annual star party, the Orange Blossom Special, each year. Visitors are welcome at our monthly viewings, but must preregister for the annual star party.",
+      url: "http://www.swfwmd.state.fl.us/recreation/areas/withlacoocheeriverpark.html"
+    },
+    {
+      name: "South Florida Everglades",
+      loc: [-80.349597, 26.13842],
+      description: "This is the dark site of the South Florida Amateur Astronomers Astronomers. Weather permitting , we use this site on or near New Moon every month of the year. Since this site is not easy to find we ask those who are interested in using the site to contact the observatory at (954) 384-0442 and leave a message for the Director or contact us through email via our web site: http://www.sfaaa.org.  We will arrange to have you follow someone to the site.",
+      url: "http://www.sfaaa.org"
+    },
+    {
+      name: "Goldhead Branch State Park",
+      loc: [-81.9594, 29.7363],
+      description: "There are a number of places to set up your scope within the park, offering different horizon conditions.  The comments above relate to what I feel is the best observing area, located near a large lake on the southeast section of the park (near some cabins).  Given the presence of overnight campers, you might have a chance of some non-astronomical neighbors, including the park rangers, stopping by during your earlier hours, car lights ablaze.  So if you engage in astrophotography, best to do it during the latter hours.  The park is patrolled, and very secure.",
+      url: "http://www.funandsun.com/parks/GoldHead/goldhead.html"
+    },
+    {
+      name: "County Road 80A (Cowgirl Way)",
+      loc: [-81.418992, 26.767028],
+      description: " Contributor writes that there is 'only one resident in the area, and they are astronomer friendly.'",
+      url: "http://www.google.com"
+    },
+    {
+      name: "Kissimmee River Lock",
+      loc: [-81.20854, 27.390263],
+      description: "It's safe, easy to find, and attended 24 hours a day.  Predators in the area are a minor concern, just some alligators in the water (if you stay away from the water they will stay away from you), raccoons near the garbage cans and mosquitos (bring LOTS of bug spray).",
+      url: " https://www.google.com/maps/@27.3986836,-81.1175493,14z"
+    },
+    {
+      name: "Fr 276",
+      loc: [-82.27626, 30.459798],
+      description: "This is the dark-sky site for the Northeast Florida Astronomical Society. The club holds observing sessions there twice a month around the New Moon. The site can be hard to find, so look at the maps and contact info at the club's web site.",
+      url: "http://www.nefas.org"
+    },
+    {
+      name: "Lower Suwannee Federal National Wildlife Refuge",
+      loc: [-76.800974, 42.910084],
+      description: "The site is accessible 24/7 with no fee. No open fires or alcohol.  Also, perhaps of only geek interest, this site is also a Geocache. This link will take you to the cache.",
+      url: "http://lowersuwannee.fws.gov/index.html"
     }
 ];
 
