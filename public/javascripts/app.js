@@ -83,9 +83,14 @@ app
   .controller('ProfileController', ProfileController)
 
 // controllers
-HomeController.$inject = ["$scope", "$http"]
-function HomeController ($scope, $http) {
+HomeController.$inject = ["$scope", "$http", "leafletBoundsHelpers"]
+function HomeController ($scope, $http, leafletBoundsHelpers) {
+  var bounds = leafletBoundsHelpers.createBoundsFromArray([
+        [ 50.3454604086048, -48.515625],
+        [ 23.32208001137843, -130.869140625 ]
+    ]);
   angular.extend($scope, {
+    bounds: bounds,
     london: {
       lat: 37.76,
       lng: -122.463,
