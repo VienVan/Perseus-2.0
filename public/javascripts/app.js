@@ -16,7 +16,6 @@ function config($stateProvider, $urlRouterProvider, $locationProvider) {
     .state('home', {
       url:'/',
       controller: 'HomeController',
-      controllerAs: 'home',
       templateUrl: 'templates/home.html'
     })
     .state('profile', {
@@ -89,13 +88,18 @@ function HomeController ($scope, $http, leafletBoundsHelpers) {
         [ 50.3454604086048, -48.515625],
         [ 23.32208001137843, -130.869140625 ]
     ]);
+  var icons = {
+    div_icon: {
+      type: 'div',
+      className: 'marker'
+    }
+  }
   angular.extend($scope, {
     bounds: bounds,
-    london: {
-      lat: 37.76,
-      lng: -122.463,
-      zoom: 8
-    },
+    icons: icons,
+    // center: {
+    //   autoDiscover: true
+    // },
     layers: {
       baselayers: {
           mapbox_light: {
@@ -119,12 +123,12 @@ function HomeController ($scope, $http, leafletBoundsHelpers) {
   $http.get('/api/locations')
     .then(function(response) {
       $scope.locations = response.data;
-      console.log("scope locations", $scope.locations)
       $scope.locations.forEach(function(location) {
         $scope.markers[location._id] = {
             lat: location.loc[1],
             lng: location.loc[0],
-            message: location.description
+            message: location.description,
+            icon: icons.div_icon
         }
       })
     })
