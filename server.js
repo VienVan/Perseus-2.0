@@ -5,8 +5,6 @@ var mongoose       = require('mongoose');
 var methodOverride = require('method-override');
 var auth           = require('./resources/auth');
 
-
-
 require('dotenv').load();
 
 app.use(bodyParser.urlencoded({extended: true}));

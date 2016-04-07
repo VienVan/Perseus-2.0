@@ -9,7 +9,7 @@ var LocationSchema = mongoose.Schema({
 		index: '2d'
 	},
 	description: String,
-	snapshot: String
+	url: String
 });
 
 module.exports = mongoose.model('Location', LocationSchema);

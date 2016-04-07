@@ -99,7 +99,7 @@ function HomeController ($scope, $http) {
               type: 'xyz',
               layerOptions: {
                   apikey: 'pk.eyJ1IjoidmllbnZhbiIsImEiOiJjaW1uczNyazYwMDE3dGtseTUxNndqcTEyIn0.fkvvqUjwFKLu5JhdbwKNWw',
-                  mapid: 'mapbox.satellite'
+                  mapid: 'mapbox.dark'
               }
           },
           osm: {
