@@ -15,8 +15,9 @@ function config($stateProvider, $urlRouterProvider, $locationProvider) {
   $stateProvider
     .state('home', {
       url:'/',
-      controller: 'HomeController',
-      templateUrl: 'templates/home.html'
+      templateUrl: "templates/home.html",
+      controller: "HomeController",
+      controllerAs: "hc"
     })
     .state('profile', {
       url:'/profile/:id',
@@ -95,14 +96,13 @@ function HomeController ($scope, $http, leafletBoundsHelpers, leafletData) {
     }
   }
   $scope.geocode = function() {
-    console.log("jitting geocode");
     var apiEndPoint = 'https://api.mapbox.com/geocoding/v5/mapbox.places/'+$scope.zipcode+'.json?access_token=pk.eyJ1IjoidmllbnZhbiIsImEiOiJjaW1uczNyazYwMDE3dGtseTUxNndqcTEyIn0.fkvvqUjwFKLu5JhdbwKNWw'
     $http.get(apiEndPoint)
     .then(function(res) {
       var longLat = res.data.features[0].center;
       $scope.center.lat = longLat[1];
       $scope.center.lng = longLat[0];
-      $scope.center.zoom = 6;
+      $scope.center.zoom = 10;
       console.log("longlat", longLat)
       console.log("center",$scope.center)
     })
@@ -142,7 +142,7 @@ function HomeController ($scope, $http, leafletBoundsHelpers, leafletData) {
         $scope.markers[location._id] = {
             lat: location.loc[1],
             lng: location.loc[0],
-            message: location.description,
+            message: "<div class='pin-message'><h1><a href="+location.url+">"+location.name+"</a></h1><p>"+location.description+"</p></div>",
             icon: icons.div_icon
         }
       })
@@ -229,6 +229,7 @@ function LogoutController ($location, Account) {
     .logout()
     .then(function () {
         $location.path('/');
+        window.location.reload();
     });
 }
 

@@ -1,10 +1,13 @@
-<h1>Home page</h1>
-<form ng-submit="geocode()">
-  <div class="form-group">
-    <input type="text" ng-model="zipcode" class='form-control' placeholder="What's your zipcode?"/>
+<leaflet class="leaflet" defaults="defaults" bounds="bounds" controls="controls" markers="markers" layers="layers" center="center" height="700px" width="100%">
+  <div id="search-form">
+    <form ng-submit="geocode()">
+      <div class="form-group">
+        <input type="text" ng-model="zipcode" class='form-control' placeholder="What's your zipcode?"/>
+      </div>
+      <div class="form-group">
+        <input type="Submit" class="form-control btn btn-info" value="Search"/>
+      </div>
+    </form>
   </div>
-  <div class="form-group">
-    <input type="Submit" value="Search"/>
-  </div>
-</form>
-<leaflet defaults="defaults" bounds="bounds" controls="controls" markers="markers" layers="layers" center="center" height="700px" width="100%"></leaflet>
+
+</leaflet>

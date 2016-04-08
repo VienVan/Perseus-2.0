@@ -9,3 +9,14 @@
 .marker:hover {
   background: white;
 }
+
+#search-form {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  z-index: 999;
+}
+
+.leaflet {
+  margin-top: -20px;
+}
