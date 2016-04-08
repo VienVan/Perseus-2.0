@@ -1,10 +1,11 @@
 
 <div class="input-group">
-
-    <input type="text" class="form-control" ng-model="zipcode" placeholder="Search for..." autofocus>
-    <span class="input-group-btn">
-      <button class="btn" ng-click="geocode()"><i class="fa fa-search"></i></button>
-    </span>
+    <form ng-submit="geocode()">
+      <input type="text" class="form-control" ng-model="zipcode" placeholder="Search for..." autofocus>
+    </form>
+      <span class="input-group-btn">
+        <button class="btn" ng-click="geocode()"><i class="fa fa-search"></i></button>
+      </span>
 </div>
 
 <leaflet class="leaflet" defaults="defaults" bounds="bounds" controls="controls" markers="markers" layers="layers" center="center" height="700px" width="100%">
