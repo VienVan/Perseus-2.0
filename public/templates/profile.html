@@ -1,19 +1,21 @@
 
-<div>
-    <h1>{{profile.displayName}}</h1>
+<div class='container'>
+    <h1 style="color: white;">{{profile.displayName}}</h1>
+    <div class='row'>
+      <form ng-submit="submitLocationForm()">
+        <div class="form-group">
+          <input type="text" ng-model="location.name" class="form-control" placeholder="Name">
+        </div>
+        <div class="form-group">
+          <input type="text" ng-model="location.description" class="form-control" placeholder="Description">
+        </div>
+        <div class="form-group">
+          <input type="text" ng-model="location.zipcode" class="form-control" placeholder="Zipcode"/>
+        </div>
+        <input type="submit" value="Add Location" class="btn btn-block">
+      </form>
 
-    <form ng-submit="submitLocationForm()">
-      <div class="form-group">
-        <input type="text" ng-model="location.name" class="form-control" placeholder="Name">
-      </div>
-      <div class="form-group">
-        <input type="text" ng-model="location.description" class="form-control" placeholder="Description">
-      </div>
-      <div class="form-group">
-        <input type="text" ng-model="location.zipcode" class="form-control" placeholder="Zipcode"/>
-      </div>
-      <input type="submit" value="Add Location" class="btn btn-block">
-    </form>
-</div>
     <leaflet class='leaflet' defaults="defaults" bounds="bounds" controls="controls" markers="markers" layers="layers" center="center" height="700px" width="100%">
     </leaflet>
+  </div>
+</div>

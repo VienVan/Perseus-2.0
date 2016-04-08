@@ -165,6 +165,18 @@ function ProfileController($scope, $http, $stateParams, leafletBoundsHelpers) {
       className: 'marker'
     }
   }
+  $http.get('/api/user/'+$stateParams.id+'/locations')
+  .then(function(res) {
+    console.log("individual location", res)
+    res.data.forEach(function(location) {
+      $scope.markers[location._id] = {
+        lat: location.loc[1],
+        lng: location.loc[0],
+        message: "<div class='pin-message'><h1><a href="+location.url+">"+location.name+"</a></h1><p>"+location.description+"</p></div>",
+        icon: icons.div_icon
+      }
+    })
+  })
   angular.extend($scope, {
     bounds: bounds,
     icons: icons,
@@ -206,12 +218,6 @@ function ProfileController($scope, $http, $stateParams, leafletBoundsHelpers) {
     $http.get(apiEndPoint)
       .then(function(res) {
         var longLat = res.data.features[0].center;
-        $scope.markers[$scope.location._id] = {
-          lat: longLat[1],
-          lng: longLat[0],
-          message: "<div class='pin-message'><h1><a href="+location.url+">"+location.name+"</a></h1><p>"+location.description+"</p></div>",
-          icon: icons.div_icon
-        }
         cb(longLat);
     })
   }
@@ -223,7 +229,6 @@ function ProfileController($scope, $http, $stateParams, leafletBoundsHelpers) {
       .then(function(res) {
         console.log("location res", res)
         $scope.location = {};
-
       })
 
   }
