@@ -14,12 +14,23 @@
 10. Trello, for project planning
 
 #Set-up Environment
-Please fork and clone the repo to make any contributions/edits. Once you have the repo on your system, run ```npm install``` to download all of the dependencies.
+Please fork and clone the repo to make any contributions/edits. Once you have the repo on your system,
 
-Then run ```nodemon server.js``` to start your server. Default port at localhost:3000.
+run ```npm install```
 
-To work with existing database, run ```node db/seeds.js``` in a separate terminal window.
+to download all of the dependencies.
+
+Don't forget to run ```mongod```,
+
+
+Then run ```nodemon server.js``` to start your server.
+
+Default port at ```localhost:3000```.
+
+To work with existing database,
+
+run ```node db/seeds.js``` in a separate terminal window.
 
 #Resources
 I found most of the existing Dark Sky sites through DarkSkyFinder.com
-[Angular Leaflet Directive](http://tombatossals.github.io/angular-leaflet-directive) Provided detailed documentation on how to set up and customize maps and markers using Angular and Leaflet. 
+[Angular Leaflet Directive](http://tombatossals.github.io/angular-leaflet-directive) Provided detailed documentation on how to set up and customize maps and markers using Angular and Leaflet.
