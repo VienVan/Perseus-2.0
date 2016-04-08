@@ -24,6 +24,12 @@ body {
   z-index: 3;
   position: fixed;
 }
+.active.ng-hide-add      { animation:0.5s lightSpeedOut ease; }
+/*.overlay.ng-hide-remove {
+  -webkit-animation:0.3s show;
+  animation:0.3s show;
+}*/
+
 
 .picture-overlay {
   width: 100%;
@@ -65,4 +71,29 @@ color: white !important;
 }
 .individual-marker:hover {
   background: white;
+}
+
+@keyframes lightSpeedOut {
+  0% {
+    opacity: 1;
+  }
+
+  100% {
+    transform: translate3d(100%, 0, 0) skewX(30deg);
+    transform: translate3d(100%, 0, 0) skewX(30deg);
+    opacity: 0;
+  }
+}
+
+@keyframes lightSpeedOut {
+  0% {
+    opacity: 1;
+  }
+
+  100% {
+    transform: translate3d(100%, 0, 0) skewX(30deg);
+    transform: translate3d(100%, 0, 0) skewX(30deg);
+    transform: translate3d(100%, 0, 0) skewX(30deg);
+    opacity: 0;
+  }
 }

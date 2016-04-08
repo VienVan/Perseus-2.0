@@ -1,4 +1,4 @@
-var app = angular.module('PerseusApp', ['ui.router', 'ngResource', 'satellizer', 'leaflet-directive']);
+var app = angular.module('PerseusApp', ['ui.router', 'ngResource', 'satellizer', 'leaflet-directive', 'ngAnimate']);
 
 app.config(config);
 
@@ -207,6 +207,7 @@ function ProfileController($scope, $http, $stateParams, leafletBoundsHelpers) {
           url: 'http://api.tiles.mapbox.com/v4/{mapid}/{z}/{x}/{y}.png?access_token={apikey}',
           type: 'xyz',
           layerOptions: {
+            opacity: .6,
             apikey: 'pk.eyJ1IjoidmllbnZhbiIsImEiOiJjaW1uczNyazYwMDE3dGtseTUxNndqcTEyIn0.fkvvqUjwFKLu5JhdbwKNWw',
             mapid: 'mapbox.dark'
           }
