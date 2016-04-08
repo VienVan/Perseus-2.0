@@ -122,6 +122,7 @@ function HomeController ($scope, $http, leafletBoundsHelpers, leafletData) {
           url: 'http://api.tiles.mapbox.com/v4/{mapid}/{z}/{x}/{y}.png?access_token={apikey}',
           type: 'xyz',
           layerOptions: {
+            opacity: 0.7,
             apikey: 'pk.eyJ1IjoidmllbnZhbiIsImEiOiJjaW1uczNyazYwMDE3dGtseTUxNndqcTEyIn0.fkvvqUjwFKLu5JhdbwKNWw',
             mapid: 'mapbox.dark'
           }
@@ -178,6 +179,17 @@ function ProfileController($scope, $http, $stateParams, leafletBoundsHelpers) {
       }
     })
   })
+  $scope.addMarker = function(lat, long, message) {
+      angular.extend($scope, {
+              m1: {
+                  lat: lat,
+                  lng: long,
+                  message: message,
+                  icon: icons.div_icon
+              }
+      });
+  };
+
   angular.extend($scope, {
     bounds: bounds,
     icons: icons,
@@ -186,7 +198,7 @@ function ProfileController($scope, $http, $stateParams, leafletBoundsHelpers) {
     },
     defaults: {
       scrollWheelZoom: false,
-      maxZoom: 12
+      maxZoom: 14
     },
     layers: {
       baselayers: {
@@ -198,6 +210,11 @@ function ProfileController($scope, $http, $stateParams, leafletBoundsHelpers) {
             apikey: 'pk.eyJ1IjoidmllbnZhbiIsImEiOiJjaW1uczNyazYwMDE3dGtseTUxNndqcTEyIn0.fkvvqUjwFKLu5JhdbwKNWw',
             mapid: 'mapbox.dark'
           }
+        },
+        osm: {
+            name: 'OpenStreetMap',
+            url: 'http://{s}.tile.osm.org/{z}/{x}/{y}.png',
+            type: 'xyz'
         }
       }
     },
@@ -225,6 +242,7 @@ function ProfileController($scope, $http, $stateParams, leafletBoundsHelpers) {
 
   $scope.addLocation = function(longLat) {
     $scope.location.loc = longLat;
+    $scope.addMarker($scope.location.loc[1], $scope.location.loc[0], $scope.location.description)
     console.log("geocode", $scope.location.loc)
     $http.post('/api/user/'+$stateParams.id+'/locations', $scope.location)
       .then(function(res) {
