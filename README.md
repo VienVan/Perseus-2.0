@@ -34,3 +34,46 @@ run ```node db/seeds.js``` in a separate terminal window.
 #Resources
 I found most of the existing Dark Sky sites through DarkSkyFinder.com
 [Angular Leaflet Directive](http://tombatossals.github.io/angular-leaflet-directive) Provided detailed documentation on how to set up and customize maps and markers using Angular and Leaflet.
+
+#Code
+Initializing a map in angular with a leaflet directive
+
+```
+<leaflet class="leaflet" defaults="defaults" bounds="bounds" controls="controls" markers="markers" layers="layers" center="center" height="700px" width="100%">
+
+</leaflet>
+```
+
+Angular.extend hoists the bounding attributes to the controller's $scope
+```angular.extend($scope, {
+  bounds: bounds,
+  icons: icons,
+  center: {
+    autoDiscover: true
+  },
+  defaults: {
+    scrollWheelZoom: false,
+    maxZoom: 14
+  },
+  layers: {
+    baselayers: {
+      mapbox_light: {
+        name: 'Mapbox Dark',
+        url: 'http://api.tiles.mapbox.com/v4/{mapid}/{z}/{x}/{y}.png?access_token={apikey}',
+        type: 'xyz',
+        layerOptions: {
+          opacity: .6,
+          apikey: 'pk.eyJ1IjoidmllbnZhbiIsImEiOiJjaW1uczNyazYwMDE3dGtseTUxNndqcTEyIn0.fkvvqUjwFKLu5JhdbwKNWw',
+          mapid: 'mapbox.dark'
+        }
+      },
+      osm: {
+          name: 'OpenStreetMap',
+          url: 'http://{s}.tile.osm.org/{z}/{x}/{y}.png',
+          type: 'xyz'
+      }
+    }
+  },
+  markers: {}
+});
+```
