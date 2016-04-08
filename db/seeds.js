@@ -1,8 +1,7 @@
 var mongoose = require('mongoose');
-var conn = mongoose.connect('mongodb://localhost/Perseus');
-
+var uri = process.env.MONGOLAB_URI || "mongodb://localhost/Perseus"
+mongoose.connect(uri);
 var Location = require('../models/Location');
-
 
 Location.remove({}, function(err) {
   if (err) {
