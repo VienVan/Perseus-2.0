@@ -15,8 +15,9 @@ function config($stateProvider, $urlRouterProvider, $locationProvider) {
   $stateProvider
     .state('home', {
       url:'/',
-      controller: 'HomeController',
-      templateUrl: 'templates/home.html'
+      templateUrl: "templates/home.html",
+      controller: "HomeController",
+      controllerAs: "hc"
     })
     .state('profile', {
       url:'/profile/:id',
@@ -82,8 +83,8 @@ app
   .controller('ProfileController', ProfileController)
 
 // controllers
-HomeController.$inject = ["$scope", "$http", "leafletBoundsHelpers"]
-function HomeController ($scope, $http, leafletBoundsHelpers) {
+HomeController.$inject = ["$scope", "$http", "leafletBoundsHelpers", "leafletData"]
+function HomeController ($scope, $http, leafletBoundsHelpers, leafletData) {
   var bounds = leafletBoundsHelpers.createBoundsFromArray([
         [ 50.3454604086048, -48.515625],
         [ 23.32208001137843, -130.869140625 ]
@@ -94,32 +95,46 @@ function HomeController ($scope, $http, leafletBoundsHelpers) {
       className: 'marker'
     }
   }
+  $scope.geocode = function() {
+    var apiEndPoint = 'https://api.mapbox.com/geocoding/v5/mapbox.places/'+$scope.zipcode+'.json?access_token=pk.eyJ1IjoidmllbnZhbiIsImEiOiJjaW1uczNyazYwMDE3dGtseTUxNndqcTEyIn0.fkvvqUjwFKLu5JhdbwKNWw'
+    $http.get(apiEndPoint)
+    .then(function(res) {
+      var longLat = res.data.features[0].center;
+      $scope.center.lat = longLat[1];
+      $scope.center.lng = longLat[0];
+      $scope.center.zoom = 10;
+      console.log("longlat", longLat)
+      console.log("center",$scope.center)
+    })
+  }
   angular.extend($scope, {
     bounds: bounds,
     icons: icons,
-    // center: {
-    //   autoDiscover: true
-    // },
+    center: {},
+    defaults: {
+      scrollWheelZoom: false,
+      maxZoom: 10
+    },
     layers: {
       baselayers: {
-          mapbox_light: {
-              name: 'Mapbox Dark',
-              url: 'http://api.tiles.mapbox.com/v4/{mapid}/{z}/{x}/{y}.png?access_token={apikey}',
-              type: 'xyz',
-              layerOptions: {
-                  apikey: 'pk.eyJ1IjoidmllbnZhbiIsImEiOiJjaW1uczNyazYwMDE3dGtseTUxNndqcTEyIn0.fkvvqUjwFKLu5JhdbwKNWw',
-                  mapid: 'mapbox.dark'
-              }
-          },
-          osm: {
-              name: 'OpenStreetMap',
-              url: 'http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',
-              type: 'xyz'
+        mapbox_light: {
+          name: 'Mapbox Dark',
+          url: 'http://api.tiles.mapbox.com/v4/{mapid}/{z}/{x}/{y}.png?access_token={apikey}',
+          type: 'xyz',
+          layerOptions: {
+            apikey: 'pk.eyJ1IjoidmllbnZhbiIsImEiOiJjaW1uczNyazYwMDE3dGtseTUxNndqcTEyIn0.fkvvqUjwFKLu5JhdbwKNWw',
+            mapid: 'mapbox.dark'
           }
+        },
+        osm: {
+          name: 'OpenStreetMap',
+          url: 'http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',
+          type: 'xyz'
+        }
       }
-  },
+    },
     markers: {}
-    });
+  });
   $http.get('/api/locations')
     .then(function(response) {
       $scope.locations = response.data;
@@ -127,7 +142,7 @@ function HomeController ($scope, $http, leafletBoundsHelpers) {
         $scope.markers[location._id] = {
             lat: location.loc[1],
             lng: location.loc[0],
-            message: location.description,
+            message: "<div class='pin-message'><h1><a href="+location.url+">"+location.name+"</a></h1><p>"+location.description+"</p></div>",
             icon: icons.div_icon
         }
       })
@@ -214,6 +229,7 @@ function LogoutController ($location, Account) {
     .logout()
     .then(function () {
         $location.path('/');
+        window.location.reload();
     });
 }
 
