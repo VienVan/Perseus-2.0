@@ -122,7 +122,7 @@ function HomeController ($scope, $http, leafletBoundsHelpers, leafletData) {
           url: 'http://api.tiles.mapbox.com/v4/{mapid}/{z}/{x}/{y}.png?access_token={apikey}',
           type: 'xyz',
           layerOptions: {
-            opacity: 0.7,
+            opacity: 0.58,
             apikey: 'pk.eyJ1IjoidmllbnZhbiIsImEiOiJjaW1uczNyazYwMDE3dGtseTUxNndqcTEyIn0.fkvvqUjwFKLu5JhdbwKNWw',
             mapid: 'mapbox.dark'
           }

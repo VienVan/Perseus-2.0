@@ -1,9 +1,12 @@
 body {
-  background: linear-gradient(rgba(0, 0, 0, .5), rgba(0, 0, 0, .5)), url('/images/milky_way.jpg');
+  background: linear-gradient(rgba(30, 30, 30, .7), rgba(30, 30, 30, .5)), url('/images/mount-peak.jpg');
   background-attachment: fixed;
   font-family: Josefin Slab;
   color: white;
   text-shadow: 0 0 100px black;
+}
+.navbar {
+  border-bottom : none;
 }
 input{
   background: transparent !important;
@@ -62,6 +65,7 @@ h1, .fa-star {
 
 .leaflet {
   margin-top: 20px;
+  border-top: 1px dotted rgba(255, 252, 125, .3);
   background-color:rgba(255,0,0,0.0);
 }
 
@@ -141,3 +145,19 @@ a:hover {
   box-shadow: 0 0 8px rgba(255,255,255,0.15);
   /*transition: box-shadow 0.3s ease-in-out:*/
 }
+
+.van {
+  color: red;
+  font-weight: bolder;
+  background-image: -webkit-linear-gradient(92deg, #f35626, #feab3a);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  -webkit-animation: hue 5s infinite linear;
+  text-shadow: none;
+}
+
+@-webkit-keyframes hue {
+  from {
+    -webkit-filter: hue-rotate(0deg); }
+  to {
+    -webkit-filter: hue-rotate(360deg); } }
