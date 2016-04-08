@@ -155,6 +155,7 @@ function MainController (Account) {
 
 ProfileController.$inject = ['$scope','$http', '$stateParams', 'leafletBoundsHelpers'];
 function ProfileController($scope, $http, $stateParams, leafletBoundsHelpers) {
+  $scope.showForm = false;
   var bounds = leafletBoundsHelpers.createBoundsFromArray([
         [ 50.3454604086048, -48.515625],
         [ 23.32208001137843, -130.869140625 ]
@@ -162,7 +163,7 @@ function ProfileController($scope, $http, $stateParams, leafletBoundsHelpers) {
   var icons = {
     div_icon: {
       type: 'div',
-      className: 'marker'
+      className: 'individual-marker'
     }
   }
   $http.get('/api/user/'+$stateParams.id+'/locations')
