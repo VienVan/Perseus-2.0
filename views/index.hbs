@@ -25,6 +25,7 @@
   <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.0/angular.js"></script>
 
   <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.0/angular-resource.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.0/angular-animate.min.js"></script>
 
   <!-- ui router -->
   <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-router/0.2.18/angular-ui-router.min.js"></script>
@@ -47,13 +48,29 @@
   <script src="https://tombatossals.github.io/angular-leaflet-directive/dist/angular-leaflet-directive.min.js"></script>
   <link rel="stylesheet" href="https://cdn.leafletjs.com/leaflet-0.7.1/leaflet.css"  />
   <script type="text/javascript" src="javascripts/app.js"></script>
+  <link rel="stylesheet" type="text/css" href="stylesheets/main.css">
+  <link href='https://fonts.googleapis.com/css?family=Josefin+Slab:400,400italic,600,100' rel='stylesheet' type='text/css'>
+
 
 
   <title>Perseus</title>
 </head>
 
 <body ng-controller="MainController as main">
-  <nav class="navbar navbar-default">
+  <div ng-show="main.showOverlay" class="overlay">
+    <div class="welcome-message">
+      <h1>Perseus</h1>
+      <h3>Helping you find where stars are the brightest.</h3>
+      <p>Click anywhere to begin your adventure.</p>
+      <p>
+        If you like us, please create an account and add your own favorite star-gazing spots for the world to enjoy!
+        I hope this crowd-sourcing platform will help some of us discover some magical pockets right where we live.
+      </p>
+    </div>
+    <img class='picture-overlay' ng-click="main.showOverlay = !main.showOverlay" ng-class="{ active: main.showOverlay }" src="/images/milky_way.jpg">
+  </div>
+
+  <nav class="navbar navbar-inverse nav-custom">
     <div class="container">
       <div class="navbar-header">
         <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
@@ -62,12 +79,9 @@
           <span class="icon-bar"></span>
           <span class="icon-bar"></span>
         </button>
-        <a class="navbar-brand" href="/">Perseus</a>
+        <a class="navbar-brand" id="brand" href="/"><i class="fa fa-moon-o"></i> Perseus</a>
       </div>
       <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-        <!-- <ul class="nav navbar-nav">
-          <li><a href="/">Home</a></li>
-        </ul> -->
         <ul class="nav navbar-nav navbar-right">
           <li ng-show="!main.currentUser()"><a ui-sref="signup">Sign Up</a></li>
           <li ng-show="!main.currentUser()"><a ui-sref="login">Log In</a></li>
@@ -78,7 +92,11 @@
     </div>
   </nav>
 
-<ui-view>
 
+  <ui-view>
+
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
 </body>
 </html>

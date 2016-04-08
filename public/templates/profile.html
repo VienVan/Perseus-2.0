@@ -1,16 +1,27 @@
 
+<div class='container'>
+    <h1 style="color: white;">Hello {{profile.displayName}}, </h1><i class="fa fa-star fa-2x" ng-click="showForm = !showForm"></i>
+    <h3>Thank you for joing our community. This is your personal map with only your favorite star-gazing spots. Please click the star icon to start populating your astronomical world. </h3>
 
-    <h1>{{pc.profile.displayName}}</h1>
+    <div class='row'>
+      <form ng-submit="submitLocationForm()" ng-show="showForm">
+        <div class="form-group">
+          <input type="text" ng-model="location.name" class="form-control" placeholder="Name">
+        </div>
+        <div class="form-group">
+          <input type="text" ng-model="location.description" class="form-control" placeholder="Description">
+        </div>
+        <div class="form-group">
+          <input type="text" ng-model="location.url" class="form-control" placeholder="Please provide a URL for stargaze site."/>
+        </div>
+        <div class="form-group">
+          <input type="text" ng-model="location.zipcode" class="form-control" placeholder="Zipcode"/>
+        </div>
+        <input type="submit" value="Add Location" class="btn btn-block">
+      </form>
 
-    <form ng-submit="pc.submitLocationForm()">
-      <div class="form-group">
-        <input type="text" ng-model="pc.location.name" class="form-control" placeholder="Name">
-      </div>
-      <div class="form-group">
-        <input type="text" ng-model="pc.location.description" class="form-control" placeholder="Description">
-      </div>
-      <div class="form-group">
-        <input type="text" ng-model="pc.location.zipcode" class="form-control" placeholder="Zipcode"/>
-      </div>
-      <input type="submit" value="Add Location" class="btn btn-block">
-    </form>
+      <leaflet class="leaflet" defaults="defaults" bounds="bounds" controls="controls" markers="markers" layers="layers" center="center" height="700px" width="100%">
+      </leaflet>
+
+  </div>
+</div>
