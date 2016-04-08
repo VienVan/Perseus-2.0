@@ -1,6 +1,8 @@
 
 <div class='container'>
-    <h1 style="color: white;">{{profile.displayName}}</h1>
+    <h1 style="color: white;">Hello {{profile.displayName}}, </h1><i class="fa fa-star fa-2x" ng-click="showForm = !showForm"></i>
+    <h3>Thank you for joing our community. This is your personal map with only your favorite star-gazing spots. Please click the star icon to start populating your astronomical world. </h3>
+
     <div class='row'>
       <form ng-submit="submitLocationForm()" ng-show="showForm">
         <div class="form-group">
@@ -17,7 +19,7 @@
         </div>
         <input type="submit" value="Add Location" class="btn btn-block">
       </form>
-      <span style="color: white;" class="glyphicon glyphicon-plus" ng-click="showForm = !showForm"></span>
+
       <leaflet class="leaflet" defaults="defaults" bounds="bounds" controls="controls" markers="markers" layers="layers" center="center" height="700px" width="100%">
       </leaflet>
 
