@@ -75,5 +75,4 @@ Angular.extend hoists the bounding attributes to the controller's $scope
     }
   },
   markers: {}
-});
-```
+});```
