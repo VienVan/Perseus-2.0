@@ -1,16 +1,19 @@
 
+<div>
+    <h1>{{profile.displayName}}</h1>
 
-    <h1>{{pc.profile.displayName}}</h1>
-
-    <form ng-submit="pc.submitLocationForm()">
+    <form ng-submit="submitLocationForm()">
       <div class="form-group">
-        <input type="text" ng-model="pc.location.name" class="form-control" placeholder="Name">
+        <input type="text" ng-model="location.name" class="form-control" placeholder="Name">
       </div>
       <div class="form-group">
-        <input type="text" ng-model="pc.location.description" class="form-control" placeholder="Description">
+        <input type="text" ng-model="location.description" class="form-control" placeholder="Description">
       </div>
       <div class="form-group">
-        <input type="text" ng-model="pc.location.zipcode" class="form-control" placeholder="Zipcode"/>
+        <input type="text" ng-model="location.zipcode" class="form-control" placeholder="Zipcode"/>
       </div>
       <input type="submit" value="Add Location" class="btn btn-block">
     </form>
+</div>
+    <leaflet class='leaflet' defaults="defaults" bounds="bounds" controls="controls" markers="markers" layers="layers" center="center" height="700px" width="100%">
+    </leaflet>
