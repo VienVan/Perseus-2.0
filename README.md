@@ -1,4 +1,4 @@
-#Perseus
+#[Perseus](https://gaze-perseus.herokuapp.com/)
 ##A Crowd-sourcing platform to help you discover where the brightest stars shine near you.
 
 #Technologies Used
@@ -14,7 +14,7 @@
 10. Trello, for project planning
 
 #Set-up Environment
-Please fork and clone the repo to make any contributions/edits. Once you have the repo on your system,
+Fork and clone the repo to make any contributions/edits. Once you have the repo on your system,
 
 run ```npm install```
 

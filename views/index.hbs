@@ -70,9 +70,9 @@
     <img class='picture-overlay' ng-click="main.showOverlay = !main.showOverlay" ng-class="{ active: main.showOverlay }" src="/images/milky_way.jpg">
   </div>
 
-  <nav class="navbar navbar-inverse nav-custom">
+  <nav   class="navbar navbar-inverse nav-custom">
     <div class="container">
-      <div class="navbar-header">
+      <div class="navbar-header" ng-hide="main.showOverlay">
         <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
           <span class="sr-only">Toggle navigation</span>
           <span class="icon-bar"></span>

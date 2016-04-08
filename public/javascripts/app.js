@@ -149,6 +149,7 @@ MainController.$inject = ["Account"]; // minification protection
 function MainController (Account) {
   var vm = this;
   vm.showOverlay = true;
+  // vm.hideNav = false;
   vm.currentUser = function() {
    return Account.currentUser();
   }
