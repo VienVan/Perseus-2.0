@@ -198,7 +198,6 @@ function ProfileController($scope, $http, $stateParams, leafletBoundsHelpers) {
       autoDiscover: true
     },
     defaults: {
-      scrollWheelZoom: false,
       maxZoom: 14
     },
     layers: {
@@ -244,6 +243,9 @@ function ProfileController($scope, $http, $stateParams, leafletBoundsHelpers) {
 
   $scope.addLocation = function(longLat) {
     $scope.location.loc = longLat;
+    $scope.center.lat = longLat[1];
+    $scope.center.lng = longLat[0];
+    $scope.center.zoom = 10;
     $scope.addMarker($scope.location.loc[1], $scope.location.loc[0], $scope.location.description)
     console.log("geocode", $scope.location.loc)
     $http.post('/api/user/'+$stateParams.id+'/locations', $scope.location)
