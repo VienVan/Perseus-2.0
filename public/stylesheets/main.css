@@ -140,6 +140,7 @@ a:hover {
   -webkit-text-fill-color: transparent;
   -webkit-animation: hue 5s infinite linear;
   text-shadow: none;
+
 }
 
 @-webkit-keyframes hue {
