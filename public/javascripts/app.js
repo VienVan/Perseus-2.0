@@ -81,7 +81,6 @@ app
   .controller('SignupController', SignupController)
   .controller('LogoutController', LogoutController)
   .controller('ProfileController', ProfileController)
-
 // controllers
 HomeController.$inject = ["$scope", "$http", "leafletBoundsHelpers", "leafletData"]
 function HomeController ($scope, $http, leafletBoundsHelpers, leafletData) {
@@ -169,7 +168,6 @@ function ProfileController($scope, $http, $stateParams, leafletBoundsHelpers) {
   }
   $http.get('/api/user/'+$stateParams.id+'/locations')
   .then(function(res) {
-    console.log("individual location", res)
     res.data.forEach(function(location) {
       $scope.markers[location._id] = {
         lat: location.loc[1],
