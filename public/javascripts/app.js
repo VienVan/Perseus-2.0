@@ -112,7 +112,6 @@ function HomeController ($scope, $http, leafletBoundsHelpers, leafletData) {
     icons: icons,
     center: {},
     defaults: {
-      scrollWheelZoom: false,
       maxZoom: 12
     },
     layers: {
@@ -198,7 +197,7 @@ function ProfileController($scope, $http, $stateParams, leafletBoundsHelpers) {
       autoDiscover: true
     },
     defaults: {
-      maxZoom: 14
+      maxZoom: 10
     },
     layers: {
       baselayers: {
